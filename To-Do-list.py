@@ -3,7 +3,6 @@ import os
 TODO_FILE = "todo.txt"
 
 def load_tasks():
-    """Load tasks from the file."""
     try:
         with open(TODO_FILE, "r") as file:
             return [task.strip() for task in file.readlines()]
@@ -11,13 +10,11 @@ def load_tasks():
         return []
 
 def save_tasks(tasks):
-    """Save tasks to the file."""
     with open(TODO_FILE, "w") as file:
         for task in tasks:
             file.write(task + "\n")
 
 def add_task(tasks):
-    """Add a new task."""
     while True:
         task = input("Enter a new task: ").strip()
         if task:
@@ -28,7 +25,6 @@ def add_task(tasks):
             print("Task cannot be empty.")
 
 def view_tasks(tasks):
-    """Display all tasks."""
     if not tasks:
         print("No tasks found.")
     else:
@@ -37,7 +33,6 @@ def view_tasks(tasks):
             print(f"{i}. {task}")
 
 def mark_completed(tasks):
-    """Mark a task as completed."""
     view_tasks(tasks)
     while True:
         try:
@@ -56,7 +51,6 @@ def mark_completed(tasks):
             print("Please enter a valid number.")
 
 def delete_task(tasks):
-    """Delete a task."""
     view_tasks(tasks)
     while True:
         try:
